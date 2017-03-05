@@ -8,84 +8,174 @@
 
 #import "TezButtons.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
-#define colorWhite [UIColor whiteColor]
-
-#define colorBlue UIColorFromRGB(0x25C1F1)
-#define colorBlueP UIColorFromRGB(0x0099C8)
-
-#define colorRed UIColorFromRGB(0xFF717E)
-#define colorRedP UIColorFromRGB(0xFF717E)
-
-#define colorText UIColorFromRGB(0x464646)
-
-#define colorGray UIColorFromRGB(0xD5D5D5)
-#define colorGrayP UIColorFromRGB(0xA8A8A8)
-
-#define colorDarkGray UIColorFromRGB(0x222222)
-#define colorDarkGrayP UIColorFromRGB(0x666666)
-
+static const double DefaultMagnification = 1;
+static const CGFloat DefaultFontSize = 12;
+static const CGFloat DefaultCornerRadius = 8;
+static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 
 #pragma mark - TezButton
 @interface TezButton()
+@property (nonatomic, assign) BOOL isAllBoldtext;
+@property (nonatomic, assign) BOOL enableRoundingCorner;
+@property (nonatomic, assign) BOOL enableBorder;
+@property (nonatomic, strong) UIColor* btnTitleColor;
+@property (nonatomic, strong) UIColor* btnBackgroundColor;
+@property (nonatomic, assign) double magnification;
+@property (nonatomic, assign) CGFloat fontSize;
+@property (nonatomic, assign) CGFloat cornerRadius;
+@property (nonatomic, assign) UIRectCorner cornerOption;
 @end
 
 @implementation TezButton
 
-- (id)initWithFrame:(CGRect)frame roundingCorner:(BOOL)enable allBoldText:(BOOL)isAllBoldtext border:(BOOL)enableBorder{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.isAllBoldtext = isAllBoldtext;
-        self.enableRoundingCorner = enable;
-        self.enableBorder = enableBorder;
-        self.magnification = 1;
-        self.fontSize = 12;
+        if (_btnTitleColor == nil) {_btnTitleColor = colorText;}
+        if (_btnBackgroundColor == nil) {_btnBackgroundColor = colorWhite;}
+        if (_magnification == 0) {_magnification = DefaultMagnification;}
+        if (_fontSize == 0) {_fontSize = DefaultFontSize;}
+        if (_cornerRadius == 0) {_cornerRadius = DefaultCornerRadius;}
+        if (_cornerOption == 0) {_cornerOption = DefaultCornerOption;}
     }
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame roundingCorner:(BOOL)enable allBoldText:(BOOL)isAllBoldtext border:(BOOL)enableBorder magnification:(double)magnification {
-    self = [self initWithFrame:frame roundingCorner:enable allBoldText:isAllBoldtext border:enableBorder];
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+        allBoldText:(BOOL)isAllBoldtext
+             border:(BOOL)enableBorder
+         titleColor:(UIColor*)titleColor
+    backgroundColor:(UIColor*)backgroundColor
+      magnification:(double)magnification
+           fontSize:(CGFloat)fontSize
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+{
+    self = [self initWithFrame:frame];
     if (self) {
-        self.magnification = magnification;
+        _enableRoundingCorner = enable;
+        _isAllBoldtext = isAllBoldtext;
+        _enableBorder = enableBorder;
+        if (titleColor != nil) {_btnTitleColor = titleColor;}
+        if (backgroundColor != nil) {_btnBackgroundColor = backgroundColor;}
+        if (magnification != 0) {_magnification = magnification;}
+        if (fontSize != 0) {_fontSize = fontSize;}
+        if (cornerRadius != 0) {_cornerRadius = cornerRadius;}
+        if (cornerOption != 0) {_cornerOption = cornerOption;}
     }
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame roundingCorner:(BOOL)enable allBoldText:(BOOL)isAllBoldtext border:(BOOL)enableBorder fontSize:(CGFloat)fontSize {
-    self = [self initWithFrame:frame roundingCorner:enable allBoldText:isAllBoldtext border:enableBorder];
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+        allBoldText:(BOOL)isAllBoldtext
+             border:(BOOL)enableBorder
+      magnification:(double)magnification
+           fontSize:(CGFloat)fontSize
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+{
+    self = [self initWithFrame:frame];
     if (self) {
-        self.fontSize = fontSize;
+        _enableRoundingCorner = enable;
+        _isAllBoldtext = isAllBoldtext;
+        _enableBorder = enableBorder;
+        if (magnification != 0) {_magnification = magnification;}
+        if (fontSize != 0) {_fontSize = fontSize;}
+        if (cornerRadius != 0) {_cornerRadius = cornerRadius;}
+        if (cornerOption != 0) {_cornerOption = cornerOption;}
     }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+         titleColor:(UIColor*)titleColor
+           fontSize:(CGFloat)fontSize
+        allBoldText:(BOOL)isAllBoldtext
+{
+    self = [self initWithFrame:frame roundingCorner:NO allBoldText:isAllBoldtext border:NO titleColor:titleColor backgroundColor:nil magnification:DefaultMagnification fontSize:fontSize cornerRadius:DefaultCornerRadius cornerOption:DefaultCornerOption];
+    if (self) {}
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+         titleColor:(UIColor*)titleColor
+    backgroundColor:(UIColor*)backgroundColor
+           fontSize:(CGFloat)fontSize
+        allBoldText:(BOOL)isAllBoldtext
+{
+    self = [self initWithFrame:frame titleColor:titleColor fontSize:fontSize allBoldText:isAllBoldtext];
+    if (self) {
+        if (backgroundColor != nil) {_btnBackgroundColor = backgroundColor;}
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+{
+    self = [self initWithFrame:frame roundingCorner:enable allBoldText:NO border:NO titleColor:nil backgroundColor:nil magnification:0 fontSize:0 cornerRadius:cornerRadius cornerOption:cornerOption];
+    if (self) {}
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+             border:(BOOL)enableBorder
+{
+    self = [self initWithFrame:frame roundingCorner:enable cornerRadius:cornerRadius cornerOption:cornerOption];
+    if (self) {
+        _enableBorder = enableBorder;
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+         titleColor:(UIColor*)titleColor
+    backgroundColor:(UIColor*)backgroundColor
+           fontSize:(CGFloat)fontSize
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+{
+    self = [self initWithFrame:frame roundingCorner:enable allBoldText:NO border:NO titleColor:titleColor backgroundColor:backgroundColor magnification:0 fontSize:fontSize cornerRadius:cornerRadius cornerOption:cornerOption];
+    if (self) {}
     return self;
 }
 
 - (void)layoutSubviews {
-    if (self.magnification == 0) {self.magnification = 1;}
-    if (self.fontSize == 0) {self.fontSize = 12;}
+    [self.titleLabel setNumberOfLines:0];
     
     if (self.state == UIControlStateNormal) {
-        [self setTitleColor:self.btnTitleColor forState:UIControlStateNormal];
-        [self setBackgroundColor:self.btnBackgroundColor];
+        [self setTitleColor:_btnTitleColor forState:UIControlStateNormal];
+        [self setBackgroundColor:_btnBackgroundColor];
     }
     else if (self.state == UIControlStateHighlighted){
-        [self setTitleColor:self.btnTitleColor_highlighted forState:UIControlStateHighlighted];
-        [self setBackgroundColor:self.btnBackgroundColor_highlighted];
+        [self setTitleColor:[self darkerColor:_btnTitleColor] forState:UIControlStateHighlighted];
+        [self setBackgroundColor:[self darkerColor:_btnBackgroundColor]];
     }
     else if (self.state == UIControlStateDisabled){
-        [self setTitleColor:self.btnTitleColor_disabled forState:UIControlStateDisabled];
-        [self setBackgroundColor:self.btnBackgroundColor_disabled];
+        [self setTitleColor:[self lighterColor:_btnTitleColor] forState:UIControlStateDisabled];
+        [self setBackgroundColor:[self lighterColor:_btnBackgroundColor]];
     }
     else if (self.state == UIControlStateSelected){
-        [self setTitleColor:self.btnTitleColor_highlighted forState:UIControlStateSelected];
-        [self setBackgroundColor:self.btnBackgroundColor_highlighted];
+        [self setTitleColor:[self darkerColor:_btnTitleColor] forState:UIControlStateSelected];
+        [self setBackgroundColor:[self darkerColor:_btnBackgroundColor]];
     }
     
-    [self.titleLabel setFont:(self.isAllBoldtext)?[UIFont boldSystemFontOfSize:self.fontSize*self.magnification]:[UIFont systemFontOfSize:self.fontSize*self.magnification]];
+    [self.titleLabel setFont:(_isAllBoldtext)?[UIFont boldSystemFontOfSize:_fontSize*_magnification]:[UIFont systemFontOfSize:_fontSize*_magnification]];
     
-    [self setMaskToRoundingRect:self byRoundingCorners:self.enableRoundingCorner?UIRectCornerAllCorners:0 cornerRadious:CGSizeMake(8, 8) borderWidth:(self.enableBorder?(self.selected?0:1):0) borderColor:colorGray];
-    //self.enableRoundingCorner?UIRectCornerAllCorners:0
+    [self setMaskToRoundingRect:self
+              byRoundingCorners:_enableRoundingCorner?_cornerOption:0
+                  cornerRadious:CGSizeMake(_cornerRadius, _cornerRadius)
+                    borderWidth:(_enableBorder?(self.selected?0:1):0)
+                    borderColor:colorGray];
+
     [super layoutSubviews];
 }
 
@@ -107,6 +197,28 @@
         [view.layer addSublayer:borderPath];
     }
 }
+
+- (UIColor *)lighterColor:(UIColor *)c
+{
+    CGFloat r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MIN(r + 0.2, 1.0)
+                               green:MIN(g + 0.2, 1.0)
+                                blue:MIN(b + 0.2, 1.0)
+                               alpha:a];
+    return nil;
+}
+
+- (UIColor *)darkerColor:(UIColor *)c
+{
+    CGFloat r, g, b, a;
+    if ([c getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - 0.2, 0.0)
+                               green:MAX(g - 0.2, 0.0)
+                                blue:MAX(b - 0.2, 0.0)
+                               alpha:a];
+    return nil;
+}
 @end
 
 
@@ -115,11 +227,7 @@
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorText;
-    self.btnTitleColor_highlighted = colorWhite;
-    self.btnTitleColor_disabled = colorWhite;
     self.btnBackgroundColor = colorWhite;
-    self.btnBackgroundColor_highlighted = colorRed;
-    self.btnBackgroundColor_disabled = colorGray;
     
     [super layoutSubviews];
 }
@@ -132,11 +240,7 @@
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorWhite;
-    self.btnTitleColor_highlighted = colorWhite;
-    self.btnTitleColor_disabled = colorWhite;
     self.btnBackgroundColor = colorGray;
-    self.btnBackgroundColor_highlighted = colorGrayP;
-//    self.btnBackgroundColor_disabled = colorDarkGray;
     
     [super layoutSubviews];
 }
@@ -148,11 +252,7 @@
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorWhite;
-    self.btnTitleColor_highlighted = colorWhite;
-    self.btnTitleColor_disabled = colorWhite;
     self.btnBackgroundColor = colorDarkGray;
-    self.btnBackgroundColor_highlighted = colorDarkGrayP;
-    self.btnBackgroundColor_disabled = colorGray;
     
     [super layoutSubviews];
 }
@@ -164,11 +264,7 @@
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorWhite;
-    self.btnTitleColor_highlighted = colorWhite;
-    self.btnTitleColor_disabled = colorWhite;
     self.btnBackgroundColor = colorBlue;
-    self.btnBackgroundColor_highlighted = colorBlueP;
-    self.btnBackgroundColor_disabled = colorGray;
     
     [super layoutSubviews];
 }
@@ -180,11 +276,7 @@
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorWhite;
-    self.btnTitleColor_highlighted = colorWhite;
-    self.btnTitleColor_disabled = colorWhite;
     self.btnBackgroundColor = colorRed;
-    self.btnBackgroundColor_highlighted = colorRedP;
-    self.btnBackgroundColor_disabled = colorGray;
     
     [super layoutSubviews];
 }
@@ -192,22 +284,14 @@
 
 
 #pragma mark - BottomLabelButton
-@interface BottomLabelButton() {
+@interface TextAlignButton() {
     BOOL m_isVerticalAlignment;
     BOOL m_isSwitchingSide;
     CGFloat m_gapBetweenContent;
 }
 @end
 
-@implementation BottomLabelButton
-
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+@implementation TextAlignButton
 
 - (void)setAlignment:(BOOL)isVertical isSwitching:(BOOL)isSwitching withGap:(CGFloat)gap {
     m_isVerticalAlignment = isVertical;
@@ -272,10 +356,6 @@
     }
 }
 
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self setAlignment:m_isVerticalAlignment isSwitching:m_isSwitchingSide withGap:m_gapBetweenContent];
@@ -283,25 +363,44 @@
 
 @end
 
+#pragma mark - Bottom Text Button
+@implementation BottomLabelButton
+- (id)initWithFrame:(CGRect)frame contentGap:(CGFloat)contentGap {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setAlignment:YES isSwitching:NO withGap:contentGap];
+    }
+    return self;
+}
+@end
 
-#pragma mark - RightImage Button
-@implementation RightImageButton
-
-- (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    CGRect frame = [super imageRectForContentRect:contentRect];
-    frame.origin.x = CGRectGetMaxX(contentRect) - CGRectGetWidth(frame) -  self.imageEdgeInsets.right + self.imageEdgeInsets.left;
-    return frame;
+#pragma mark - Left Label Button
+@implementation LeftLabelButton
+- (id)initWithFrame:(CGRect)frame contentGap:(CGFloat)contentGap {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setAlignment:NO isSwitching:YES withGap:contentGap];
+    }
+    return self;
 }
 
-- (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    CGRect frame = [super titleRectForContentRect:contentRect];
-    frame.origin.x = CGRectGetMinX(frame) - CGRectGetWidth([self imageRectForContentRect:contentRect]);
-    return frame;
-}
+//
+//- (CGRect)imageRectForContentRect:(CGRect)contentRect {
+//    CGRect frame = [super imageRectForContentRect:contentRect];
+//    frame.origin.x = CGRectGetMaxX(contentRect) - CGRectGetWidth(frame) -  self.imageEdgeInsets.right + self.imageEdgeInsets.left;
+//    return frame;
+//}
+//
+//- (CGRect)titleRectForContentRect:(CGRect)contentRect {
+//    CGRect frame = [super titleRectForContentRect:contentRect];
+//    frame.origin.x = CGRectGetMinX(frame) - CGRectGetWidth([self imageRectForContentRect:contentRect]);
+//    return frame;
+//}
 
 @end
 
-#pragma mark - Underline Button
+
+#pragma mark - Text Underline Button
 @interface UnderlineButton()
 @end
 
@@ -332,6 +431,6 @@
 @end
 
 
-#pragma mark - IncludeData Button
+#pragma mark - Include data Button
 @implementation IncludeDataButton : UIButton
 @end
