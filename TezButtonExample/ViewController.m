@@ -147,7 +147,7 @@
     
     originX = self.view.frame.size.width/2 + 20*0.5;
     
-    // Corner, border options
+    // Underline option
     UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 70)];
     [underlineBtn setBackgroundColor:colorDarkGray];
     [underlineBtn setTitle:@"Underline Btn" forState:UIControlStateNormal];
