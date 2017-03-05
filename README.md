@@ -3,7 +3,7 @@ Custom UIButtons
 
 * TezButton is include Title/Backgound Color, border, corner radius options and Bottom/Left label, Include data button.
 
-![Example](/tezpark/TezButton/edit/master/Example.png)
+![example](https://cloud.githubusercontent.com/assets/389004/23586007/e57ea05a-01cf-11e7-853d-2797102fe0e9.png)
 
 #Usage
 ```objective-c
