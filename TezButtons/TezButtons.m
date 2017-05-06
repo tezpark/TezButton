@@ -9,7 +9,7 @@
 #import "TezButtons.h"
 
 static const double DefaultMagnification = 1;
-static const CGFloat DefaultFontSize = 12;
+static const CGFloat DefaultFontSize = 13;
 static const CGFloat DefaultCornerRadius = 8;
 static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 
@@ -22,6 +22,8 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 @property (nonatomic, strong) UIColor* btnBackgroundColor;
 @property (nonatomic, assign) double magnification;
 @property (nonatomic, assign) CGFloat fontSize;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) NSString *titleStr;
 @property (nonatomic, assign) CGFloat cornerRadius;
 @property (nonatomic, assign) UIRectCorner cornerOption;
 @end
@@ -69,6 +71,31 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 
 - (id)initWithFrame:(CGRect)frame
      roundingCorner:(BOOL)enable
+             border:(BOOL)enableBorder
+         titleColor:(UIColor*)titleColor
+    backgroundColor:(UIColor*)backgroundColor
+      magnification:(double)magnification
+               font:(UIFont*)font
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption
+{
+    self = [self initWithFrame:frame];
+    if (self) {
+        _enableRoundingCorner = enable;
+        _enableBorder = enableBorder;
+        if (titleColor != nil) {_btnTitleColor = titleColor;}
+        if (backgroundColor != nil) {_btnBackgroundColor = backgroundColor;}
+        if (magnification != 0) {_magnification = magnification;}
+        if (font != nil) {_font = font;}
+        if (cornerRadius != 0) {_cornerRadius = cornerRadius;}
+        if (cornerOption != 0) {_cornerOption = cornerOption;}
+        
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
         allBoldText:(BOOL)isAllBoldtext
              border:(BOOL)enableBorder
       magnification:(double)magnification
@@ -85,6 +112,73 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
         if (fontSize != 0) {_fontSize = fontSize;}
         if (cornerRadius != 0) {_cornerRadius = cornerRadius;}
         if (cornerOption != 0) {_cornerOption = cornerOption;}
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+         titleColor:(UIColor *)titleColor
+    backgroundColor:(UIColor *)backgroundColor
+           fontSize:(CGFloat)fontSize
+       cornerRadius:(CGFloat)cornerRadius
+       cornerOption:(UIRectCorner)cornerOption {
+    self = [self initWithFrame:frame
+                roundingCorner:enable
+                   allBoldText:NO
+                        border:NO
+                    titleColor:titleColor
+               backgroundColor:backgroundColor
+                 magnification:0
+                      fontSize:fontSize
+                  cornerRadius:cornerRadius
+                  cornerOption:cornerOption];
+    if (self) {
+    }
+    return self;
+}
+
+// font&text
+
+- (id)initWithFrame:(CGRect)frame
+           fontSize:(CGFloat)fontSize
+        allBoldText:(BOOL)isAllBoldtext
+{
+    self = [self initWithFrame:frame roundingCorner:NO allBoldText:isAllBoldtext border:NO titleColor:nil backgroundColor:nil magnification:DefaultMagnification fontSize:fontSize cornerRadius:DefaultCornerRadius cornerOption:DefaultCornerOption];
+    if (self) {}
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+              title:(NSString*)title
+        allBoldText:(BOOL)isAllBoldtext
+{
+    self = [self initWithFrame:frame roundingCorner:NO allBoldText:isAllBoldtext border:NO titleColor:nil backgroundColor:nil magnification:DefaultMagnification fontSize:DefaultFontSize cornerRadius:DefaultCornerRadius cornerOption:DefaultCornerOption];
+    if (self) {
+        _titleStr = title;
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+              title:(NSString*)title
+           font:(UIFont*)font
+{
+    self = [self initWithFrame:frame roundingCorner:NO border:NO titleColor:nil backgroundColor:nil magnification:DefaultMagnification font:font cornerRadius:DefaultCornerRadius cornerOption:DefaultCornerOption];
+    if (self) {
+        _titleStr = title;
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+              title:(NSString*)title
+           fontSize:(CGFloat)fontSize
+        allBoldText:(BOOL)isAllBoldtext
+{
+    self = [self initWithFrame:frame roundingCorner:NO allBoldText:isAllBoldtext border:NO titleColor:nil backgroundColor:nil magnification:DefaultMagnification fontSize:fontSize cornerRadius:DefaultCornerRadius cornerOption:DefaultCornerOption];
+    if (self) {
+        _titleStr = title;
     }
     return self;
 }
@@ -112,6 +206,7 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
     return self;
 }
 
+// rounding parent method
 - (id)initWithFrame:(CGRect)frame
      roundingCorner:(BOOL)enable
        cornerRadius:(CGFloat)cornerRadius
@@ -122,6 +217,17 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
     return self;
 }
 
+// rounding child method
+- (id)initWithFrame:(CGRect)frame
+     roundingCorner:(BOOL)enable
+       cornerRadius:(CGFloat)cornerRadius
+{
+    self = [self initWithFrame:frame roundingCorner:enable cornerRadius:cornerRadius cornerOption:UIRectCornerAllCorners];
+    if (self) {}
+    return self;
+}
+
+// rounding child method
 - (id)initWithFrame:(CGRect)frame
      roundingCorner:(BOOL)enable
        cornerRadius:(CGFloat)cornerRadius
@@ -135,16 +241,16 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
     return self;
 }
 
+// rounding child method
 - (id)initWithFrame:(CGRect)frame
      roundingCorner:(BOOL)enable
-         titleColor:(UIColor*)titleColor
-    backgroundColor:(UIColor*)backgroundColor
-           fontSize:(CGFloat)fontSize
        cornerRadius:(CGFloat)cornerRadius
-       cornerOption:(UIRectCorner)cornerOption
+             border:(BOOL)enableBorder
 {
-    self = [self initWithFrame:frame roundingCorner:enable allBoldText:NO border:NO titleColor:titleColor backgroundColor:backgroundColor magnification:0 fontSize:fontSize cornerRadius:cornerRadius cornerOption:cornerOption];
-    if (self) {}
+    self = [self initWithFrame:frame roundingCorner:enable cornerRadius:cornerRadius cornerOption:UIRectCornerAllCorners];
+    if (self) {
+        _enableBorder = enableBorder;
+    }
     return self;
 }
 
@@ -168,13 +274,24 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
         [self setBackgroundColor:[self darkerColor:_btnBackgroundColor]];
     }
     
-    [self.titleLabel setFont:(_isAllBoldtext)?[UIFont boldSystemFontOfSize:_fontSize*_magnification]:[UIFont systemFontOfSize:_fontSize*_magnification]];
+    if (_font)
+        [self.titleLabel setFont:_font];
+    else
+        [self.titleLabel setFont:(_isAllBoldtext)?[UIFont boldSystemFontOfSize:_fontSize*_magnification]:[UIFont systemFontOfSize:_fontSize*_magnification]];
     
-    [self setMaskToRoundingRect:self
-              byRoundingCorners:_enableRoundingCorner?_cornerOption:0
-                  cornerRadious:CGSizeMake(_cornerRadius, _cornerRadius)
-                    borderWidth:(_enableBorder?(self.selected?0:1):0)
-                    borderColor:colorGray];
+    if ([_titleStr length] > 0) {
+        [self setTitle:_titleStr forState:UIControlStateNormal];
+        _titleStr = @"";
+    }
+    
+    
+    if (_enableRoundingCorner || _enableBorder) {
+        [self setMaskToRoundingRect:self
+                  byRoundingCorners:_enableRoundingCorner?_cornerOption:0
+                      cornerRadious:CGSizeMake(_cornerRadius, _cornerRadius)
+                        borderWidth:(_enableBorder?(self.selected?0:2):0)
+                        borderColor:colorText];
+    }
 
     [super layoutSubviews];
 }
@@ -259,6 +376,66 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 @end
 
 
+#pragma mark - RedButton
+@implementation RedButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorRed;
+    
+    [super layoutSubviews];
+}
+@end
+
+
+#pragma mark - OrangeButton
+@implementation OrangeButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorOrange;
+    
+    [super layoutSubviews];
+}
+@end
+
+
+#pragma mark - YellowButton
+@implementation YellowButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorYellow;
+    
+    [super layoutSubviews];
+}
+@end
+
+
+#pragma mark - GreenButton
+@implementation GreenButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorGreen;
+    
+    [super layoutSubviews];
+}
+@end
+
+
+#pragma mark - SkyBlueButton
+@implementation SkyBlueButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorSkyBlue;
+    
+    [super layoutSubviews];
+}
+@end
+
+
 #pragma mark - BlueButton
 @implementation BlueButton
 
@@ -271,16 +448,29 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 @end
 
 
-#pragma mark - RedButton
-@implementation RedButton
+#pragma mark - PurpleButton
+@implementation PurpleButton
 
 - (void)layoutSubviews {
     self.btnTitleColor = colorWhite;
-    self.btnBackgroundColor = colorRed;
+    self.btnBackgroundColor = colorPurple;
     
     [super layoutSubviews];
 }
 @end
+
+
+#pragma mark - PinkButton
+@implementation PinkButton
+
+- (void)layoutSubviews {
+    self.btnTitleColor = colorWhite;
+    self.btnBackgroundColor = colorPink;
+    
+    [super layoutSubviews];
+}
+@end
+
 
 
 #pragma mark - BottomLabelButton

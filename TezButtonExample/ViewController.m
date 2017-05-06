@@ -17,8 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:UIColorFromRGB(0xDAE4E8)];
     [self makeButtons];
 }
 
@@ -26,7 +25,7 @@
     CGFloat originX = 20.0f;
     CGFloat originY = 50.0f;
     
-    // All options
+    // All options (Tezbutton superclass)
     TezButton* allOptBtn = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
                                              roundingCorner:YES
                                                 allBoldText:YES
@@ -37,102 +36,104 @@
                                                    fontSize:12
                                                cornerRadius:8
                                                cornerOption:UIRectCornerAllCorners];
-    [allOptBtn setTitle:@"All options button" forState:UIControlStateNormal];
+    [allOptBtn setTitle:@"TezButton Superclass (All option)" forState:UIControlStateNormal];
     [self.view addSubview:allOptBtn];
     
     originX = self.view.frame.size.width/2 + 20*0.5;
     
-    TezButton* allOptBtn2 = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
-                                              roundingCorner:YES
-                                                 allBoldText:NO
-                                                      border:NO
-                                                  titleColor:colorWhite
-                                             backgroundColor:colorText
-                                               magnification:1.5
-                                                    fontSize:12
-                                                cornerRadius:8
-                                                cornerOption:UIRectCornerTopLeft|UIRectCornerTopRight];
-    [allOptBtn2 setTitle:@"All options button2" forState:UIControlStateNormal];
-    [self.view addSubview:allOptBtn2];
     
-    originX = 20.0f;
-    originY += (50.0f + 20.0f);
-    
-    // Title, color options
-    TezButton* titleOptBtn = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
-                                                   titleColor:colorText
-                                                     fontSize:12
+    // fontsize, bold option
+    GreenButton* titleOptBtn = [[GreenButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+                                              fontSize:14
                                                   allBoldText:YES];
-    [titleOptBtn setTitle:@"Title options button" forState:UIControlStateNormal];
+    [titleOptBtn setTitle:@"FontSize, Bold" forState:UIControlStateNormal];
     [self.view addSubview:titleOptBtn];
     
+    originX = 20.0f;
+    originY += (50.0f + 20.0f);
+    
+    
+    // Title, bold option
+    RedButton* titleOptBtn2 = [[RedButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+                                                               title:@"Title, Bold"
+                                                         allBoldText:YES];
+    [self.view addSubview:titleOptBtn2];
+    
     originX = self.view.frame.size.width/2 + 20*0.5;
     
-    TezButton* titleAndColorOptBtn = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
-                                                           titleColor:colorText
-                                                      backgroundColor:colorGray
-                                                             fontSize:12
-                                                          allBoldText:YES];
-    [titleAndColorOptBtn setTitle:@"Title & color options button" forState:UIControlStateNormal];
-    [self.view addSubview:titleAndColorOptBtn];
+    
+    // Title, font option
+    SkyBlueButton* titleOptBtn3 = [[SkyBlueButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+                                                                  title:@"Title, Font"
+                                                                   font:[UIFont boldSystemFontOfSize:12]];
+    [self.view addSubview:titleOptBtn3];
     
     originX = 20.0f;
     originY += (50.0f + 20.0f);
     
-    // Corner, border options
-    TezButton* cornerOptBtn = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
-                                                roundingCorner:YES
-                                                  cornerRadius:8
-                                                  cornerOption:UIRectCornerAllCorners];
-    [cornerOptBtn setTitle:@"Corner options button" forState:UIControlStateNormal];
+    
+    // titleColor, fontsize, bold option
+    OrangeButton* titleOptBtn4 = [[OrangeButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+                                                titleColor:colorText
+                                                          fontSize:14
+                                                       allBoldText:YES];
+    [titleOptBtn4 setTitle:@"TitleColor, FontSize, Bold" forState:UIControlStateNormal];
+    [self.view addSubview:titleOptBtn4];
+    
+    originX = self.view.frame.size.width/2 + 20*0.5;
+    
+    
+    // Corner, Radius option
+    BlueButton* cornerOptBtn = [[BlueButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+                                                         roundingCorner:YES
+                                                          cornerRadius:15];
+    [cornerOptBtn setTitle:@"Corner, Radius" forState:UIControlStateNormal];
     [self.view addSubview:cornerOptBtn];
     
-    originX = self.view.frame.size.width/2 + 20*0.5;
-    
-    TezButton* cornerAndBorderOptBtn = [[TezButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
-                                                         roundingCorner:YES
-                                                           cornerRadius:8
-                                                           cornerOption:UIRectCornerBottomLeft|UIRectCornerTopRight
-                                                                 border:YES];
-    [cornerAndBorderOptBtn setTitle:@"Corner & border options button" forState:UIControlStateNormal];
-    [self.view addSubview:cornerAndBorderOptBtn];
-    
     originX = 20.0f;
     originY += (50.0f + 20.0f);
+
     
-    // Corner, border options
-    BlueButton* blueBtn = [[BlueButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+    // Corner, RectCorner, Radius options
+    YellowButton* cornerOptBtn2 = [[YellowButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
                                              roundingCorner:YES
-                                               cornerRadius:8
-                                               cornerOption:UIRectCornerAllCorners];
-    [blueBtn setTitle:@"Blue button (subclass)" forState:UIControlStateNormal];
-    [self.view addSubview:blueBtn];
+                                               cornerRadius:15
+                                               cornerOption:UIRectCornerTopLeft|UIRectCornerBottomRight];
+    [cornerOptBtn2 setTitle:@"Corner, RectCorner, Radius" forState:UIControlStateNormal];
+    [self.view addSubview:cornerOptBtn2];
     
     originX = self.view.frame.size.width/2 + 20*0.5;
     
-    RedButton* redBtn = [[RedButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
+    // Corner, Radius, Bolder
+    PurpleButton* cornerOptBtn3 = [[PurpleButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 50)
                                              roundingCorner:YES
-                                               cornerRadius:8
-                                               cornerOption:UIRectCornerAllCorners];
-    [redBtn setTitle:@"Red button (subclass)" forState:UIControlStateNormal];
-    [self.view addSubview:redBtn];
+                                               cornerRadius:15
+                                               border:YES];
+    [cornerOptBtn3 setTitle:@"Corner, Radius, Bolder" forState:UIControlStateNormal];
+    [self.view addSubview:cornerOptBtn3];
     
     originX = 20.0f;
-    originY += (50.0f + 20.0f);
+    originY += (50.0f + 20.0f) + 100;
+    
+    
+    
+    
     
     // Bottom label button
-    BottomLabelButton* bottomLabelBtn = [[BottomLabelButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 70) contentGap:10];
+    BottomLabelButton* bottomLabelBtn = [[BottomLabelButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 60) contentGap:5];
     [bottomLabelBtn setImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-    [bottomLabelBtn setBackgroundColor:colorDarkGray];
+    [bottomLabelBtn setBackgroundColor:colorWhite];
+    [bottomLabelBtn setTitleColor:colorText forState:UIControlStateNormal];
     [bottomLabelBtn setTitle:@"Bottom label" forState:UIControlStateNormal];
     [self.view addSubview:bottomLabelBtn];
     
     originX = self.view.frame.size.width/2 + 20*0.5;
     
     // Left label button
-    LeftLabelButton* leftLabelButton = [[LeftLabelButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 70) contentGap:10];
+    LeftLabelButton* leftLabelButton = [[LeftLabelButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 60) contentGap:5];
     [leftLabelButton setImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-    [leftLabelButton setBackgroundColor:colorDarkGray];
+    [leftLabelButton setBackgroundColor:colorWhite];
+    [leftLabelButton setTitleColor:colorText forState:UIControlStateNormal];
     [leftLabelButton setTitle:@"Left label" forState:UIControlStateNormal];
     [self.view addSubview:leftLabelButton];
 
@@ -140,16 +141,19 @@
     originY += (70.0f + 20.0f);
     
     // Include Data option
-    IncludeDataButton* includeDataBtn = [[IncludeDataButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 70)];
+    IncludeDataButton* includeDataBtn = [[IncludeDataButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 60)];
     [includeDataBtn setInfo:[NSDictionary new]];
+    [includeDataBtn setBackgroundColor:colorPink];
+    [includeDataBtn setTitleColor:colorWhite forState:UIControlStateNormal];
     [includeDataBtn setTitle:@"Include data btn" forState:UIControlStateNormal];
     [self.view addSubview:includeDataBtn];
     
     originX = self.view.frame.size.width/2 + 20*0.5;
     
     // Underline option
-    UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 70)];
-    [underlineBtn setBackgroundColor:colorDarkGray];
+    UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 60)];
+    [underlineBtn setBackgroundColor:colorWhite];
+    [underlineBtn setTitleColor:colorText forState:UIControlStateNormal];
     [underlineBtn setTitle:@"Underline Btn" forState:UIControlStateNormal];
     [self.view addSubview:underlineBtn];
     
