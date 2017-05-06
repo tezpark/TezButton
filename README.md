@@ -7,8 +7,8 @@ Custom UIButtons
 
 * TezButton is include Title/Backgound Color, border, corner radius options and Bottom/Left label, Include data button.
 
-![Example]((https://cloud.githubusercontent.com/assets/389004/25770932/a65009b2-327d-11e7-9fc3-0419e59c6e17.png)
-)
+![example](https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png)
+
 
 
 #Usage
@@ -46,13 +46,13 @@ Custom UIButtons
     OrangeButton* titleOptBtn4 = [[OrangeButton alloc] initWithFrame:frame
                                                           titleColor:colorText
                                                             fontSize:14
-                                                       allBoldText:YES];
+                                                         allBoldText:YES];
     [titleOptBtn4 setTitle:@"TitleColor, FontSize, Bold" forState:UIControlStateNormal];
     
     // Corner, Radius option
     BlueButton* cornerOptBtn = [[BlueButton alloc] initWithFrame:frame
-                                                         roundingCorner:YES
-                                                          cornerRadius:15];
+                                                  roundingCorner:YES
+                                                    cornerRadius:15];
     [cornerOptBtn setTitle:@"Corner, Radius" forState:UIControlStateNormal];
     
     // Corner, RectCorner, Radius options
