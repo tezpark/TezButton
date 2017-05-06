@@ -7,12 +7,13 @@ Custom UIButtons
 
 * TezButton is include Title/Backgound Color, border, corner radius options and Bottom/Left label, Include data button.
 
-![Example](https://cloud.githubusercontent.com/assets/389004/25770924/724a51ea-327d-11e7-8e00-6305f8a3f8d9.png)
+![Example]((https://cloud.githubusercontent.com/assets/389004/25770932/a65009b2-327d-11e7-9fc3-0419e59c6e17.png)
+)
 
 
 #Usage
 ```objective-c
-// All options
+// All options (Tezbutton superclass)
     TezButton* allOptBtn = [[TezButton alloc] initWithFrame:frame
                                              roundingCorner:YES
                                                 allBoldText:YES
@@ -23,86 +24,64 @@ Custom UIButtons
                                                    fontSize:12
                                                cornerRadius:8
                                                cornerOption:UIRectCornerAllCorners];
-    [allOptBtn setTitle:@"All options button" forState:UIControlStateNormal];
+    [allOptBtn setTitle:@"TezButton Superclass (All option)" forState:UIControlStateNormal];
     
-    TezButton* allOptBtn2 = [[TezButton alloc] initWithFrame:frame
-                                              roundingCorner:YES
-                                                 allBoldText:NO
-                                                      border:NO
-                                                  titleColor:colorWhite
-                                             backgroundColor:colorText
-                                               magnification:1.5
-                                                    fontSize:12
-                                                cornerRadius:8
-                                                cornerOption:UIRectCornerTopLeft|UIRectCornerTopRight];
-    [allOptBtn2 setTitle:@"All options button2" forState:UIControlStateNormal];
+    // fontsize, bold option
+    GreenButton* titleOptBtn = [[GreenButton alloc] initWithFrame:frame
+                                                         fontSize:14
+                                                      allBoldText:YES];
+    [titleOptBtn setTitle:@"FontSize, Bold" forState:UIControlStateNormal];
     
-    // Title, color options
-    TezButton* titleOptBtn = [[TezButton alloc] initWithFrame:frame
-                                                   titleColor:colorText
-                                                     fontSize:12
-                                                  allBoldText:YES];
-    [titleOptBtn setTitle:@"Title options button" forState:UIControlStateNormal];
+    // Title, bold option
+    RedButton* titleOptBtn2 = [[RedButton alloc] initWithFrame:frame
+                                                         title:@"Title, Bold"
+                                                   allBoldText:YES];
     
-    TezButton* titleAndColorOptBtn = [[TezButton alloc] initWithFrame:frame
-                                                           titleColor:colorText
-                                                      backgroundColor:colorGray
-                                                             fontSize:12
-                                                          allBoldText:YES];
-    [titleAndColorOptBtn setTitle:@"Title & color options button" forState:UIControlStateNormal];
+    // Title, font option
+    SkyBlueButton* titleOptBtn3 = [[SkyBlueButton alloc] initWithFrame:frame
+                                                                 title:@"Title, Font"
+                                                                  font:[UIFont boldSystemFontOfSize:12]];
     
-    // Corner, border options
-    TezButton* cornerOptBtn = [[TezButton alloc] initWithFrame:frame
-                                                roundingCorner:YES
-                                                  cornerRadius:8
-                                                  cornerOption:UIRectCornerAllCorners];
-    [cornerOptBtn setTitle:@"Corner options button" forState:UIControlStateNormal];
+    // titleColor, fontsize, bold option
+    OrangeButton* titleOptBtn4 = [[OrangeButton alloc] initWithFrame:frame
+                                                          titleColor:colorText
+                                                            fontSize:14
+                                                       allBoldText:YES];
+    [titleOptBtn4 setTitle:@"TitleColor, FontSize, Bold" forState:UIControlStateNormal];
     
-    TezButton* cornerAndBorderOptBtn = [[TezButton alloc] initWithFrame:frame
+    // Corner, Radius option
+    BlueButton* cornerOptBtn = [[BlueButton alloc] initWithFrame:frame
                                                          roundingCorner:YES
-                                                           cornerRadius:8
-                                                           cornerOption:UIRectCornerBottomLeft|UIRectCornerTopRight
-                                                                 border:YES];
-    [cornerAndBorderOptBtn setTitle:@"Corner & border options button" forState:UIControlStateNormal];
+                                                          cornerRadius:15];
+    [cornerOptBtn setTitle:@"Corner, Radius" forState:UIControlStateNormal];
     
-    // Corner, border options
-    BlueButton* blueBtn = [[BlueButton alloc] initWithFrame:frame
-                                             roundingCorner:YES
-                                               cornerRadius:8
-                                               cornerOption:UIRectCornerAllCorners];
-    [blueBtn setTitle:@"Blue button (subclass)" forState:UIControlStateNormal];
+    // Corner, RectCorner, Radius options
+    YellowButton* cornerOptBtn2 = [[YellowButton alloc] initWithFrame:frame
+                                                       roundingCorner:YES
+                                                         cornerRadius:15
+                                                         cornerOption:UIRectCornerTopLeft|UIRectCornerBottomRight];
+    [cornerOptBtn2 setTitle:@"Corner, RectCorner, Radius" forState:UIControlStateNormal];
     
-    RedButton* redBtn = [[RedButton alloc] initWithFrame:frame
-                                             roundingCorner:YES
-                                               cornerRadius:8
-                                               cornerOption:UIRectCornerAllCorners];
-    [redBtn setTitle:@"Red button (subclass)" forState:UIControlStateNormal];
+    // Corner, Radius, Bolder
+    PurpleButton* cornerOptBtn3 = [[PurpleButton alloc] initWithFrame:frame
+                                                       roundingCorner:YES
+                                                         cornerRadius:15
+                                                               border:YES];
+    [cornerOptBtn3 setTitle:@"Corner, Radius, Bolder" forState:UIControlStateNormal];
+    
     
     // Bottom label button
-    BottomLabelButton* bottomLabelBtn = [[BottomLabelButton alloc] initWithFrame:frame contentGap:10];
-    [bottomLabelBtn setImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-    [bottomLabelBtn setBackgroundColor:colorDarkGray];
-    [bottomLabelBtn setTitle:@"Bottom label" forState:UIControlStateNormal];
-    [self.view addSubview:bottomLabelBtn];
+    BottomLabelButton* bottomLabelBtn = [[BottomLabelButton alloc] initWithFrame:frame contentGap:5];
     
     // Left label button
-    LeftLabelButton* leftLabelButton = [[LeftLabelButton alloc] initWithFrame:frame contentGap:10];
-    [leftLabelButton setImage:[UIImage imageNamed:@"check"] forState:UIControlStateNormal];
-    [leftLabelButton setBackgroundColor:colorDarkGray];
-    [leftLabelButton setTitle:@"Left label" forState:UIControlStateNormal];
-    [self.view addSubview:leftLabelButton];
+    LeftLabelButton* leftLabelButton = [[LeftLabelButton alloc] initWithFrame:frame contentGap:5];
     
     // Include Data option
     IncludeDataButton* includeDataBtn = [[IncludeDataButton alloc] initWithFrame:frame];
     [includeDataBtn setInfo:[NSDictionary new]];
-    [includeDataBtn setTitle:@"Include data btn" forState:UIControlStateNormal];
-    [self.view addSubview:includeDataBtn];
     
     // Underline option
     UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:frame];
-    [underlineBtn setBackgroundColor:colorDarkGray];
-    [underlineBtn setTitle:@"Underline Btn" forState:UIControlStateNormal];
-    [self.view addSubview:underlineBtn];
 ```
 
 
