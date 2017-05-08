@@ -5,6 +5,7 @@
 # TezButton
 Custom UIButtons
 
+## Summary
 * TezButton is easily support customized button for using. 
 * Include button type is:
   * Title, Font
@@ -16,7 +17,11 @@ Custom UIButtons
 
 ![example](https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png)
 
-
+# Installation
+## CocoaPods
+```bash
+pod "TezButton"
+```
 
 # Usage
 ```objective-c
