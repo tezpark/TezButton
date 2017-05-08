@@ -1,3 +1,15 @@
-nguage: objective-c
+language: objective-c
+osx_image: xcode8
 xcode_workspace: TezButtonExample.xcodeproj
-xcode_scheme: TezButton
+xcode_scheme: TezButtonExample
+xcode_sdk: iphonesimulator10.0
+
+before_install:
+    - cd Example
+    - brew update
+    - brew outdated xctool || brew upgrade xctool
+    - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+    - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+
+script:
+      - xcodebuild build test -project TezButtonExample.xcodeproj -scheme TezButtonExample | xcpretty
