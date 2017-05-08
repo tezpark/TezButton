@@ -14,16 +14,17 @@ Custom UIButtons
   * Underline
   * Right image/ Left label
   * Top image / left label
-
+## Screenshot
 ![example](https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png)
 
-# Installation
-## CocoaPods
+
+## Installation
+### CocoaPods
 ```bash
 pod "TezButton"
 ```
 
-# Usage
+## Usage
 ```objective-c
 // All options (Tezbutton superclass)
     TezButton* allOptBtn = [[TezButton alloc] initWithFrame:frame
@@ -97,7 +98,7 @@ pod "TezButton"
 ```
 
 
-# License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2017 Taesun Park
