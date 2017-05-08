@@ -11,7 +11,7 @@ Custom UIButtons
 
 
 
-#Usage
+# Usage
 ```objective-c
 // All options (Tezbutton superclass)
     TezButton* allOptBtn = [[TezButton alloc] initWithFrame:frame
@@ -85,7 +85,7 @@ Custom UIButtons
 ```
 
 
-#License
+# License
 The MIT License (MIT)
 
 Copyright (c) 2017 Taesun Park
