@@ -5,7 +5,14 @@
 # TezButton
 Custom UIButtons
 
-* TezButton is include Title/Backgound Color, border, corner radius options and Bottom/Left label, Include data button.
+* TezButton is easily support customized button for using. 
+* Include button type is:
+  * Title, Font
+  * Rounding corner
+  * Bolder
+  * Underline
+  * Right image/ Left label
+  * Top image / left label
 
 ![example](https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png)
 
