@@ -13,8 +13,8 @@
 		411A1B321E62BFAE00FFA694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411A1B301E62BFAE00FFA694 /* Main.storyboard */; };
 		411A1B341E62BFAE00FFA694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411A1B331E62BFAE00FFA694 /* Assets.xcassets */; };
 		411A1B371E62BFAE00FFA694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411A1B351E62BFAE00FFA694 /* LaunchScreen.storyboard */; };
-		411A1D081E62C14C00FFA694 /* TezButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 411A1D071E62C14C00FFA694 /* TezButtons.m */; };
 		415765861E6C04C8007584FF /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 415765851E6C04C8007584FF /* check.png */; };
+		D05664C21EC00E4B00612927 /* TezButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D05664C11EC00E4B00612927 /* TezButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,9 +28,9 @@
 		411A1B331E62BFAE00FFA694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		411A1B361E62BFAE00FFA694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411A1B381E62BFAE00FFA694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		411A1D061E62C14C00FFA694 /* TezButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TezButtons.h; sourceTree = "<group>"; };
-		411A1D071E62C14C00FFA694 /* TezButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TezButtons.m; sourceTree = "<group>"; };
 		415765851E6C04C8007584FF /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		D05664C01EC00E4B00612927 /* TezButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TezButton.h; sourceTree = "<group>"; };
+		D05664C11EC00E4B00612927 /* TezButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TezButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 		411A1B1B1E62BFAE00FFA694 = {
 			isa = PBXGroup;
 			children = (
-				411A1D051E62C14C00FFA694 /* TezButtons */,
+				D05664BF1EC00E4B00612927 /* TezButton */,
 				411A1B261E62BFAE00FFA694 /* TezButtonExample */,
 				411A1B251E62BFAE00FFA694 /* Products */,
 			);
@@ -86,21 +86,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		411A1D051E62C14C00FFA694 /* TezButtons */ = {
-			isa = PBXGroup;
-			children = (
-				411A1D061E62C14C00FFA694 /* TezButtons.h */,
-				411A1D071E62C14C00FFA694 /* TezButtons.m */,
-			);
-			path = TezButtons;
-			sourceTree = "<group>";
-		};
 		415765841E6C04C0007584FF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				415765851E6C04C8007584FF /* check.png */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		D05664BF1EC00E4B00612927 /* TezButton */ = {
+			isa = PBXGroup;
+			children = (
+				D05664C01EC00E4B00612927 /* TezButton.h */,
+				D05664C11EC00E4B00612927 /* TezButton.m */,
+			);
+			path = TezButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				411A1B2F1E62BFAE00FFA694 /* ViewController.m in Sources */,
-				411A1D081E62C14C00FFA694 /* TezButtons.m in Sources */,
 				411A1B2C1E62BFAE00FFA694 /* AppDelegate.m in Sources */,
+				D05664C21EC00E4B00612927 /* TezButton.m in Sources */,
 				411A1B291E62BFAE00FFA694 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

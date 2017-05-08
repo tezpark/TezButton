@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TezButtons.h"
+#import "TezButton.h"
 
 @interface ViewController ()
 

@@ -1,12 +1,11 @@
 //
-//  TezButtons.m
-//  foodflyios
+//  TezButton.m
 //
 //  Created by TezPark on 2015. 11. 24..
 //  Copyright © 2015년 TezPark. All rights reserved.
 //
 
-#import "TezButtons.h"
+#import "TezButton.h"
 
 static const double DefaultMagnification = 1;
 static const CGFloat DefaultFontSize = 13;
@@ -520,7 +519,7 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
         CGRect imageFrame = self.imageView.frame;
         CGRect titleFrame = self.titleLabel.bounds;
         
-        //현재 설정된 inset값 가져온다.
+        // Get current button EdgeInset value
         UIEdgeInsets contentInset = [self contentEdgeInsets];
         UIEdgeInsets titleInset = [self titleEdgeInsets];
         UIEdgeInsets imageInset = [self imageEdgeInsets];

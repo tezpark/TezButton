@@ -1,6 +1,5 @@
 //
-//  TezButtons.h
-//  foodflyios
+//  TezButton.h
 //
 //  Created by TezPark on 2015. 11. 24..
 //  Copyright © 2015년 TezPark. All rights reserved.
