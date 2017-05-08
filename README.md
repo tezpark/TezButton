@@ -1,6 +1,7 @@
 [![GitHub platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)]() 
 [![GitHub language](https://img.shields.io/badge/language-objective--c-6BAEE4.svg)]()
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tezpark/AlternateIconName-objC/master/LICENSE)
+[![Travis build](https://travis-ci.org/tezpark/TezButton.svg?branch=master)]()
 
 # TezButton
 Custom UIButtons
