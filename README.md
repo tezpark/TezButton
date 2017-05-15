@@ -1,7 +1,8 @@
-[![GitHub platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)]() 
+[![Platform](https://img.shields.io/cocoapods/p/TezButton.svg?style=flat)](http://cocoapods.org/pods/TezButton)
 [![GitHub language](https://img.shields.io/badge/language-objective--c-6BAEE4.svg)]()
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/tezpark/AlternateIconName-objC/master/LICENSE)
-[![Travis build](https://travis-ci.org/tezpark/TezButton.svg?branch=master)]()
+[![Version](https://img.shields.io/cocoapods/v/TezButton.svg?style=flat)](http://cocoapods.org/pods/TezButton)
+[![License](https://img.shields.io/cocoapods/l/TezButton.svg?style=flat)](http://cocoapods.org/pods/TezButton)
+[![Travis build](https://travis-ci.org/tezpark/TezButton.svg?branch=master)](https://travis-ci.org/tezpark/TezButton)
 
 # TezButton
 Custom UIButtons
