@@ -2,8 +2,8 @@ language: objective-c
 osx_image: xcode8
 xcode_workspace: TezButtonExample.xcodeproj
 xcode_scheme: TezButtonExample
--xcode_sdk: iphonesimulator10.0		
-
+xcode_sdk: iphonesimulator10.0		
+ 		 
 script:
-- set -o pipefail && xcodebuild test -project TezButtonExample.xcodeproj -scheme TezButtonExample | xcpretty
+- xcodebuild build test -project TezButtonExample.xcodeproj -scheme TezButtonExample | xcpretty
 - pod lib lint
