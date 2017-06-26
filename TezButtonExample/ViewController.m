@@ -142,7 +142,7 @@
     
     // Include Data option
     IncludeDataButton* includeDataBtn = [[IncludeDataButton alloc] initWithFrame:CGRectMake(originX, originY, self.view.frame.size.width/2 - 20*1.5, 60)];
-    [includeDataBtn setInfo:[NSDictionary new]];
+    [includeDataBtn setData:[NSDictionary new]];
     [includeDataBtn setBackgroundColor:colorPink];
     [includeDataBtn setTitleColor:colorWhite forState:UIControlStateNormal];
     [includeDataBtn setTitle:@"Include data btn" forState:UIControlStateNormal];

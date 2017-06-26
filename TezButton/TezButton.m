@@ -6,11 +6,13 @@
 //
 
 #import "TezButton.h"
+#import <objc/runtime.h>
 
 static const double DefaultMagnification = 1;
 static const CGFloat DefaultFontSize = 13;
 static const CGFloat DefaultCornerRadius = 8;
 static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
+static void *DataKey = "DataKey";
 
 #pragma mark - TezButton
 @interface TezButton()
@@ -622,4 +624,13 @@ static const UIRectCorner DefaultCornerOption = UIRectCornerAllCorners;
 
 #pragma mark - Include data Button
 @implementation IncludeDataButton : UIButton
+- (void)setData:(id)data {
+    objc_setAssociatedObject(self, DataKey, data, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (id)data {
+    id data = objc_getAssociatedObject(self, DataKey);
+    
+    return data;
+}
 @end

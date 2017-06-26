@@ -331,5 +331,6 @@
 #pragma mark - Include data Button
 /** Incluging data button */
 @interface IncludeDataButton : UIButton
-@property (nonatomic, strong) NSDictionary* info;
+- (void)setData:(id)data;
+- (id)data;
 @end
