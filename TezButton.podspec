@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = "TezButton"
-  s.version            = "0.2"
+  s.version            = "0.3"
   s.summary            = "TezButton is easily support customized button for using"
   s.homepage           = "https://github.com/tezpark/TezButton"
   s.screenshots        = "https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png"
