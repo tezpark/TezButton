@@ -96,7 +96,7 @@ pod "TezButton"
     
     // Include Data option
     IncludeDataButton* includeDataBtn = [[IncludeDataButton alloc] initWithFrame:frame];
-    [includeDataBtn setInfo:[NSDictionary new]];
+    [includeDataBtn setData:[NSDictionary new]];
     
     // Underline option
     UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:frame];
