@@ -5,7 +5,7 @@
 [![Travis build](https://travis-ci.org/tezpark/TezButton.svg?branch=master)](https://travis-ci.org/tezpark/TezButton)
 
 # TezButton
-Custom UIButtons
+Custom UIButton
 
 ## Summary
 * TezButton is easily support customized button for using. 
