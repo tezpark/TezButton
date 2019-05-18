@@ -31,7 +31,21 @@
 /**
  Customizing button's super class
  */
+IB_DESIGNABLE
 @interface TezButton : UIButton
+
+@property (nonatomic, assign) IBInspectable BOOL isAllBoldtext;
+@property (nonatomic, assign) IBInspectable BOOL enableRoundingCorner;
+@property (nonatomic, assign) IBInspectable BOOL enableBorder;
+@property (nonatomic, strong) IBInspectable UIColor* btnTitleColor;
+@property (nonatomic, strong) IBInspectable UIColor* btnBackgroundColor;
+@property (nonatomic, assign) IBInspectable double magnification;
+@property (nonatomic, assign) IBInspectable CGFloat fontSize;
+@property (nonatomic, strong) IBInspectable UIFont *font;
+@property (nonatomic, strong) IBInspectable NSString *titleStr;
+@property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
+@property (nonatomic, assign) IBInspectable UIRectCorner cornerOption;
+
 
 /**
  Initialize button with all options
@@ -236,51 +250,63 @@
 
 #pragma mark - TezButton SubClass
 /** White button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface WhiteButton : TezButton
 @end
 
 /** Gray button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface GrayButton : TezButton
 @end
 
 /** Dark gray button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface DarkGrayButton : TezButton
 @end
 
 /** Red button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface RedButton : TezButton
 @end
 
 /** Orange button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface OrangeButton : TezButton
 @end
 
 /** Yellow button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface YellowButton : TezButton
 @end
 
 /** Green button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface GreenButton : TezButton
 @end
 
 /** SkyBlue button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface SkyBlueButton : TezButton
 @end
 
 /** Blue button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface BlueButton : TezButton
 @end
 
 /** Purple button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface PurpleButton : TezButton
 @end
 
 /** Pink button (TezButton SubClass) */
+IB_DESIGNABLE
 @interface PinkButton : TezButton
 @end
 
 
 #pragma mark - Text align button (SuperClass)
+IB_DESIGNABLE
 @interface TextAlignButton : UIButton
 
 /**
@@ -295,6 +321,7 @@
 
 #pragma mark - Bottm label Button
 /** Place the button's label on the bottom. */
+IB_DESIGNABLE
 @interface BottomLabelButton : TextAlignButton
 
 /**

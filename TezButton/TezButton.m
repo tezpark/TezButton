@@ -16,17 +16,7 @@ static void *DataKey = "DataKey";
 
 #pragma mark - TezButton
 @interface TezButton()
-@property (nonatomic, assign) BOOL isAllBoldtext;
-@property (nonatomic, assign) BOOL enableRoundingCorner;
-@property (nonatomic, assign) BOOL enableBorder;
-@property (nonatomic, strong) UIColor* btnTitleColor;
-@property (nonatomic, strong) UIColor* btnBackgroundColor;
-@property (nonatomic, assign) double magnification;
-@property (nonatomic, assign) CGFloat fontSize;
-@property (nonatomic, strong) UIFont *font;
-@property (nonatomic, strong) NSString *titleStr;
-@property (nonatomic, assign) CGFloat cornerRadius;
-@property (nonatomic, assign) UIRectCorner cornerOption;
+
 @end
 
 @implementation TezButton
@@ -295,6 +285,10 @@ static void *DataKey = "DataKey";
     }
 
     [super layoutSubviews];
+}
+
+- (void)prepareForInterfaceBuilder {
+    [super prepareForInterfaceBuilder];
 }
 
 #pragma mark - Common (Private)
