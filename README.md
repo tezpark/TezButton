@@ -31,6 +31,7 @@ pod "TezButton"
 ```
 
 ## Usage
+### Programmatically
 ```objective-c
 // All options (Tezbutton superclass)
     TezButton* allOptBtn = [[TezButton alloc] initWithFrame:frame
@@ -103,6 +104,8 @@ pod "TezButton"
     UnderlineButton* underlineBtn = [[UnderlineButton alloc] initWithFrame:frame];
 ```
 
+### Inspector builder
+![inspector_builder_tezbutton](https://user-images.githubusercontent.com/389004/57968756-791eb400-79a9-11e9-8982-96979fff33f2.png)
 
 ## License
 The MIT License (MIT)
