@@ -16,6 +16,7 @@ Custom UIButton
   * Underline
   * Right image/ Left label
   * Top image / left label
+* Support the Inspector Builder
 ## Screenshot
 ![example](https://cloud.githubusercontent.com/assets/389004/25770963/5abfdf1c-327e-11e7-8432-187f28a3bb81.png)
 
